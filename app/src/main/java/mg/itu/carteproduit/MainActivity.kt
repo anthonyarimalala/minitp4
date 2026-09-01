@@ -66,18 +66,6 @@ fun ProduitCard(produit: Produit) {
     // Ce log trace chaque (re)composition de la carte — NE PAS le déplacer.
     Log.i("RECOMP", "ProduitCard se (re)compose")
 
-    // TODO B (à faire APRÈS le TODO A) :
-    // 1. Déclarez ici un état booléen :
-    //      var selectionnee by remember { mutableStateOf(false) }
-    // 2. Ajoutez au Modifier de la Card :  .clickable { selectionnee = !selectionnee }
-    // 3. Changez la couleur de la carte selon l'état, en remplaçant
-    //    les colors de la Card par :
-    //      colors = CardDefaults.cardColors(
-    //          containerColor = if (selectionnee)
-    //              MaterialTheme.colorScheme.primaryContainer
-    //          else MaterialTheme.colorScheme.surfaceVariant
-    //      )
-
     var selectionnee by remember { mutableStateOf(false) }
     var quantite by remember { mutableStateOf(0) }
     Card(
@@ -104,14 +92,8 @@ fun ProduitCard(produit: Produit) {
 
             Spacer(Modifier.height(12.dp))
 
-            // TODO A :
-            // 1. Déclarez EN HAUT de la fonction (au-dessus de la Card) :
-            //      var quantite by remember { mutableStateOf(0) }
-            // 2. Remplacez les deux lignes ci-dessous par :
             Text("Quantité : $quantite kg")
             Button(onClick = { quantite++ }) { Text("Ajouter 1 kg") }
-            // Text("Quantité : (TODO A)")
-            // Button(onClick = { /* TODO A */ }) { Text("Ajouter 1 kg") }
         }
     }
 }
